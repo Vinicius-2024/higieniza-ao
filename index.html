@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>SCH Lavagens | Higienização de Estofados</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (gratuito) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+
+        /* Container padrão */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header fixo */
+        header {
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 0;
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #0f3b2c;
+        }
+        .logo p {
+            font-size: 0.8rem;
+            color: #4b5563;
+            letter-spacing: -0.2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #2d3e35;
+            transition: 0.2s;
+        }
+        .nav-links a:hover {
+            color: #0f6e4a;
+        }
+
+        .btn-whats-header {
+            background: #25D366;
+            padding: 8px 18px;
+            border-radius: 40px;
+            color: white !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+        .btn-whats-header i {
+            font-size: 1.2rem;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #eef7f2 0%, #d9eee2 100%);
+            padding: 60px 0;
+            border-radius: 0 0 48px 48px;
+            margin-bottom: 48px;
+        }
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        .hero-info {
+            flex: 1;
+        }
+        .hero-info .stars {
+            color: #f5b042;
+            margin-bottom: 16px;
+            font-size: 1.2rem;
+        }
+        .hero-info h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #0a2e22;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .hero-info p {
+            font-size: 1.1rem;
+            color: #2c4a3e;
+            margin-bottom: 28px;
+            max-width: 550px;
+        }
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .btn-primary {
+            background: #0f6e4a;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.2s;
+            border: none;
+        }
+        .btn-primary:hover {
+            background: #0a5438;
+            transform: scale(1.02);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid #0f6e4a;
+            color: #0f6e4a;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .hero-img {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-img img {
+            max-width: 100%;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.15);
+        }
+
+        /* Seção serviços */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+            color: #1e2f28;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .card {
+            background: #fbfefc;
+            border-radius: 28px;
+            padding: 32px 20px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+            border: 1px solid #ddebe4;
+            transition: all 0.2s;
+        }
+        .card i {
+            font-size: 2.5rem;
+            color: #0f6e4a;
+            margin-bottom: 18px;
+        }
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 14px;
+        }
+        .card p {
+            color: #4b6a5c;
+        }
+
+        /* Sobre + local */
+        .about-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 70px;
+            background: #f6fbf9;
+            border-radius: 48px;
+            padding: 40px;
+        }
+        .about-text {
+            flex: 1;
+        }
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #0a2e22;
+        }
+        .highlight {
+            background: #eef3f0;
+            padding: 14px 18px;
+            border-radius: 20px;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+
+        /* Depoimentos estilo Google */
+        .testimonials {
+            background: #ffffff;
+            margin: 40px 0;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .testimonial-card {
+            background: #f9fdfb;
+            padding: 24px;
+            border-radius: 32px;
+            border: 1px solid #cde3da;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.03);
+        }
+        .stars-gold {
+            color: #FFB800;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        .testimonial-card p {
+            font-style: italic;
+            margin: 12px 0;
+            color: #2c3b34;
+        }
+        .client-name {
+            font-weight: 700;
+            margin-top: 12px;
+            color: #0f6e4a;
+        }
+
+        /* Mapa e contato final */
+        .contact-area {
+            background: #eef6f2;
+            border-radius: 48px;
+            padding: 48px 32px;
+            margin: 50px 0;
+        }
+        .contact-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+        .contact-info {
+            flex: 1;
+        }
+        .contact-info p {
+            margin: 16px 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .map-responsive {
+            flex: 1;
+            border-radius: 28px;
+            overflow: hidden;
+            min-height: 280px;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 280px;
+            border: 0;
+        }
+
+        /* rodapé */
+        footer {
+            text-align: center;
+            padding: 32px 0;
+            font-size: 0.85rem;
+            color: #6c7a74;
+            border-top: 1px solid #ddebe4;
+        }
+
+        /* botão flutuante zap */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: 0.2s;
+            z-index: 99;
+            text-decoration: none;
+        }
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .hero-info h2 {
+                font-size: 2rem;
+            }
+            .header-flex {
+                flex-direction: column;
+            }
+            .about-grid, .contact-flex {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-flex">
+        <div class="logo">
+            <h1>SCH LAVAGENS</h1>
+            <p>Higienização de Estofados | Especialistas</p>
+        </div>
+        <div class="nav-links">
+            <a href="#home">Início</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#avaliacoes">Avaliações</a>
+            <a href="#contato">Contato</a>
+            <a href="https://wa.me/5511999986345?text=Olá! Gostaria de um orçamento para higienização de estofados." class="btn-whats-header" target="_blank"><i class="fab fa-whatsapp"></i> Orçamento</a>
+        </div>
+    </div>
+</header>
+
+<section id="home" class="hero">
+    <div class="container hero-grid">
+        <div class="hero-info">
+            <div class="stars">
+                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 
+                <span style="color:#2d5a48;">5,0 ★ (36 avaliações)</span>
+            </div>
+            <h2>Sofás, colchões e estofados como novos</h2>
+            <p>Removemos manchas, ácaros, mofo e sujeira profunda. Sem encharcamento, com produtos que respeitam sua família e o meio ambiente.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/5511999986345?text=Olá! Vi o site e quero agendar uma higienização." target="_blank" class="btn-primary"><i class="fab fa-whatsapp"></i> Solicite orçamento</a>
+                <a href="#avaliacoes" class="btn-outline">Ver depoimentos</a>
+            </div>
+        </div>
+        <div class="hero-img">
+            <!-- Imagem demonstrativa de limpeza / Você pode trocar depois por uma foto real do seu trabalho -->
+            <img src="https://placehold.co/600x400/e0f0e8/2c6e4f?text=Antes+%26+Depois+SCH" alt="Higienização de sofá SCH">
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <section id="servicos">
+        <h2 class="section-title">Nossos serviços</h2>
+        <div class="cards">
+            <div class="card">
+                <i class="fas fa-couch"></i>
+                <h3>Sofás & Poltronas</h3>
+                <p>Remoção de sujeira, manchas, odores e ácaros. Respeitamos o tecido.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-bed"></i>
+                <h3>Colchões</h3>
+                <p>Higienização profunda, eliminação de fungos e ácaros. Sono mais saudável.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-car"></i>
+                <h3>Bancos Automotivos</h3>
+                <p>Estofados de carro, caminhonete. Higienização sem danificar espuma e couro.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-chair"></i>
+                <h3>Cadeiras e Tapetes</h3>
+                <p>Cadeiras de escritório, tapetes, almofadas. Cuidado especial com cada peça.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="about-grid">
+        <div class="about-text">
+            <h3>Profissional com mais de 5 anos de experiência</h3>
+            <p>Na SCH Lavagens, cada estofado recebe um tratamento único: avaliação do tecido, produtos biodegradáveis e técnica de extração que não encharca. Resultado: limpeza completa, seca rápido e sem risco de mofo futuro.</p>
+            <div class="highlight">
+                <i class="fas fa-map-marker-alt"></i>  Atendemos em São Paulo - Zona Leste e região (Vila Reis, Itaquera, São Mateus e adjacências).
+            </div>
+            <p>⭐ +36 clientes satisfeitos no Google Maps. Confiança e serviço nota 10.</p>
+        </div>
+        <div class="about-text">
+            <h3><i class="fas fa-clock"></i> Horário de funcionamento</h3>
+            <p>🔹 Segunda a Sexta: 08h às 18h<br>
+            🔹 Sábado: 08h às 13h<br>
+            🔹 Domingo: fechado (atendimento emergencial sob consulta)<br><br>
+            📞 (11) 99998-6345 | Atendimento rápido via WhatsApp.</p>
+        </div>
+    </section>
+
+    <section id="avaliacoes" class="testimonials">
+        <h2 class="section-title">O que dizem nossos clientes ★ 5.0</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="stars-gold">★★★★★</div>
+                <p>"Esse foi o resultado do sofá que estava manchado com muita sujeira e muito mofo pois estava guardado há um tempo, obrigada pelo ótimo trabalho!! Gentil, atencioso e trabalha super bem. Indico a todos."</p>
+                <div class="client-name">— Gleyce Viana</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars-gold">★★★★★</div>
+                <p>"Um excelente profissional. Amei o trabalho dele, podem confiar!! 🙏🥰"</p>
+                <div class="client-name">— Cliente recente</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars-gold">★★★★★</div>
+                <p>"Recomendo a todos que buscam um serviço de confiança e com ótimos resultados! Peguei o sofá da chácara e trouxe pra casa, antes e depois impressionante."</p>
+                <div class="client-name">— Avaliação Google</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars-gold">★★★★★</div>
+                <p>"Ótimo profissional, explica tudo direitinho. Pontual e cuidadoso."</p>
+                <div class="client-name">— Cliente verificado</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contact-area">
+        <div class="contact-flex">
+            <div class="contact-info">
+                <h3><i class="fas fa-envelope-open-text"></i> Fale conosco</h3>
+                <p><i class="fab fa-whatsapp"></i> <strong>(11) 99998-6345</strong>  –  Clique e peça seu orçamento sem compromisso.</p>
+                <p><i class="fas fa-map-pin"></i> R. José Santana - Vila Reis, São Paulo - SP, 08040-390</p>
+                <p><i class="fas fa-globe"></i> Atendimento residencial e comercial - levamos a higienização até você.</p>
+                <a href="https://wa.me/5511999986345?text=Olá! Gostaria de informações sobre limpeza de estofados." class="btn-primary" style="background:#25D366; margin-top: 12px; display: inline-flex;"><i class="fab fa-whatsapp"></i> Chamar no WhatsApp</a>
+            </div>
+            <div class="map-responsive">
+                <!-- Mapa exato da R. José Santana - Vila Reis, SP -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.3333985307913!2d-46.4181655!3d-23.4901984!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce64a7cebe0cf1%3A0x6fde7c88839e3e63!2sR.%20Jos%C3%A9%20Santana%20-%20Vila%20Reis%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2008040-390!5e0!3m2!1spt-BR!2sbr!4v1711288822200!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div class="container">
+        <p>© 2025 SCH Lavagens e Higienização de Estofados - CNPJ e Profissional legalizado | Qualidade e confiança que seu lar merece.</p>
+        <p style="margin-top: 8px;"><i class="fas fa-star"></i> Avaliação 5 estrelas no Google Maps | 36 recomendações reais</p>
+    </div>
+</footer>
+
+<!-- Botão flutuante WhatsApp -->
+<a href="https://wa.me/5511999986345?text=Olá! Gostaria de agendar uma higienização de estofados." class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+</body>
+</html>
